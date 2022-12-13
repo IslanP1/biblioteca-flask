@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<form action="{{ url_for('criar') }}" method="post">
+  <fieldset>
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="genero">Gênero</label>
+      <input type="text" id="genero" name="genero" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="autor">Autor</label>
+      <input type="text" id="autor" name="autor" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+  </fieldset>
+</form>
+{% endblock %}
