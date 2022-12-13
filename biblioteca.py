@@ -28,7 +28,7 @@ def index():
 @app.route('/cadastro')
 def cadastro():
     if 'usuario_logado' not in session or session['usuario_logado'] == None:
-        return redirect('/login?proxima=cadastro')
+        return redirect('login', proxima=url_for("cadastro"))
     return render_template('cadastro.html', titulo='Novo Livro')
 
 
@@ -54,7 +54,7 @@ def autenticar():
        session['usuario_logado'] = request.form['usuario']
        proxima_pagina = request.form['proxima']
        flash(request.form['usuario'] + ' logou com sucesso!')
-       return redirect('/{}'.format(proxima_pagina))
+       return redirect(proxima_pagina)
    else:
        flash('Senha ou usuário incorreto!')
        return redirect(url_for('login'))
